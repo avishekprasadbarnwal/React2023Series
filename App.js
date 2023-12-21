@@ -9,6 +9,10 @@
     */
 }
 
+// importing packages from node modules
+import React from "react";
+import ReactDOM from "react-dom/client"; 
+
 let createdelement = React.createElement(
     "div", 
     {
