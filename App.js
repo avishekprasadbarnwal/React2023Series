@@ -1,47 +1,33 @@
-{
-    /* 
-        <div class="parent">
-            <div class="child">
-                <h1 class="sibling1">Sibling 1 text</h1>
-                <h2 class="sibling2">Sibling 2 text</h2>
-            </div>
-        </div> 
-    */
+// importing React, ReactDOM
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+let element = <div>
+    <h2 className="first_class">First Element</h2>
+</div>;
+
+let ReactChildComponent = () => {
+    return (
+        <div>
+            <p>This is a child Component!!</p>
+        </div>
+    )
 }
 
-// importing packages from node modules
-import React from "react";
-import ReactDOM from "react-dom/client"; 
-
-let createdelement = React.createElement(
-    "div", 
-    {
-        id: "parent",
-        data_core_react: "core react element"
-    },
-    React.createElement(
-        "div", 
-        {
-            id: "child"
-        },
-        [
-            React.createElement(
-                "h1", 
-                {
-                    id: "sibling1"
-                },
-                "Sibling 1"
-            ),
-            React.createElement(
-                "h2", 
-                {
-                    id: "sibling2"
-                },
-                "Sibling 2"
-            )
-        ]
+let ReactComponent = () => {
+    return (
+        <div>
+            {element}
+            {/* 
+                All the below 3 method of calling the Child component will give the same output
+                Note: The last calling is like a func because the React component is basically a normal function
+            */}
+            <ReactChildComponent />
+            <ReactChildComponent></ReactChildComponent>
+            {ReactChildComponent()}
+        </div>
     )
-);
+}
 
 let root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(createdelement);
+root.render(element);
